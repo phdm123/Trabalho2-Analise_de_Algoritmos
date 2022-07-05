@@ -45,20 +45,24 @@ def Guloso2():
             itens.append([int(peso), int(valor), 0, round(relacao, 2)])
     relacao = 0
     arq.close()
-    capacidade_max = itens.pop(0)[1]
-    while True:
+    vetor_aux = itens.pop(0)
+    for j in range(vetor_aux[0]):
         for i in range(len(itens)):
             if(relacao < itens[i][3] and itens[i][2] == 0):
                 peso = itens[i][1]
                 valor = itens[i][0]
                 index = i
-        if(capacidade_max > capacidade_atual + peso):
+        if(vetor_aux[1] > capacidade_atual + peso):
             itens[index][2] = 1
             capacidade_atual += peso
             valor_total += valor
         else:
-            return [capacidade_max, capacidade_atual, valor_total, itens]
+            itens[index][2] = -1
         relacao = 0
+    for i in range(vetor_aux[0]):
+        if(itens[i][2] == -1):
+            itens[i][2] = 0
+    return [vetor_aux[1], capacidade_atual, valor_total, itens]
 
 
 if __name__ == '__main__':
