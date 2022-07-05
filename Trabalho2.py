@@ -46,7 +46,10 @@ def Guloso2():
             relacao = int(valor)/int(peso)
             itens.append([int(valor), int(peso), 0, round(relacao, 2)])
     arq.close()
+<<<<<<< HEAD
     relacao = 0
+=======
+>>>>>>> 6af5ce9adc8cb0b267f93105222b587b5da87678
     vetor_aux = itens.pop(0)
     for j in range(vetor_aux[0]):
         for i in range(len(itens)):
@@ -55,7 +58,11 @@ def Guloso2():
                 peso = itens[i][1]
                 valor = itens[i][0]
                 index = i
+<<<<<<< HEAD
         if(vetor_aux[1] >= capacidade_atual + peso):
+=======
+        if(vetor_aux[1] > capacidade_atual + peso):
+>>>>>>> 6af5ce9adc8cb0b267f93105222b587b5da87678
             itens[index][2] = 1
             capacidade_atual += peso
             valor_total += valor
@@ -65,7 +72,11 @@ def Guloso2():
     for i in range(vetor_aux[0]):
         if(itens[i][2] == -1):
             itens[i][2] = 0
+<<<<<<< HEAD
     return valor_total
+=======
+    return [vetor_aux[1], capacidade_atual, valor_total, itens]
+>>>>>>> 6af5ce9adc8cb0b267f93105222b587b5da87678
 
 def Dinamico():
     itens = []
